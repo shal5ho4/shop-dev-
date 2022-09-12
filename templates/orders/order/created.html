@@ -1,0 +1,16 @@
+{% extends 'shop/base.html' %}
+
+{% block title %}Thank you{% endblock %}
+
+{% block content %}
+<h1>Thank you</h1>
+<p>
+  Your order has been successfully completed.
+  Your order number is <strong>{{ order.id }}</strong>.
+</p>
+<p>
+  We have sent you the confimation email including the PDF invoice.<br>
+  If you haven't received any, please make sure that you have entered
+  your email address correctly. 
+</p>
+{% endblock %}
