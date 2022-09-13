@@ -1,4 +1,9 @@
 import os
+import environ
+
+
+env = environ.Env()
+env.read_env()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -8,7 +13,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '8rry*f&4f1kw2(-+j@2wqfgb3#s&-=8=@umy5t1$vg!()h7v6v'
+SECRET_KEY = env.str('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -157,9 +162,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 EMAIL_HOST = 'smtp.gmail.com'
 
-EMAIL_HOST_USER = 'sharuru.test@gmail.com'
+EMAIL_HOST_USER = env.str('EMAIL_USER')
 
-EMAIL_HOST_PASSWORD = '0507sebun'
+EMAIL_HOST_PASSWORD = env.str('EMAIL_PASSWORD')
 
 EMAIL_PORT = 587
 
@@ -168,11 +173,11 @@ EMAIL_USE_TLS = True
 
 #Braintree config
 
-BRAINTREE_MERCHANT_ID = 'r8hz2bkfvdys7rjt'
+BRAINTREE_MERCHANT_ID = env.str('BRAINTREE_MERCHANT_ID')
 
-BRAINTREE_PUBLIC_KEY = 'tnh8nsgxmk2bs9km'
+BRAINTREE_PUBLIC_KEY = env.str('BRAINTREE_PUBLIC_KEY')
 
-BRAINTREE_PRIVATE_KEY = 'b3a5a14fa6e999985360c32c4da81969'
+BRAINTREE_PRIVATE_KEY = env.str('BRAINTREE_PRIVATE_KEY')
 
 import braintree
 
